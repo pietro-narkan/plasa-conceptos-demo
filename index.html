@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Demo pública del constructor visual de conceptos creativos de Plasa." />
+    <meta name="theme-color" content="#7c3aed" />
+    <title>Constructor de conceptos | Plasa Demo</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c3aed'/%3E%3Cpath d='M20 46V18h14c8 0 13 4 13 11s-5 12-14 12h-5v5zm8-12h5c4 0 6-2 6-5 0-2-2-4-6-4h-5z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#workspaceMain">Saltar al contenido</a>
+
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v9.5h4.25v-5.75h4.5v5.75h4.25V10" /></symbol>
+      <symbol id="i-map" viewBox="0 0 24 24"><path d="m3.5 6 5-2 7 2.5 5-2v13l-5 2-7-2.5-5 2zM8.5 4v13M15.5 6.5v13" /></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M9.5 21h5M8.2 14.8A7 7 0 1 1 15.8 15c-.9.7-1.3 1.5-1.3 2h-5c0-.6-.4-1.4-1.3-2.2Z" /></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="8.5" cy="9" r="1.5" /><path d="m5 18 4.5-4.5 3 3 2-2 4.5 3.5" /></symbol>
+      <symbol id="i-meta" viewBox="0 0 36 36"><path d="M5.7 16.2c0-3.3 1.5-5.4 4-5.4 1.8 0 2.9 1 4.3 3l3.5 5.5c1.6 2.5 2.6 3.7 3.4 3.7 1 0 1.4-1 1.4-3.4l-.1-3.7c-.2-1.6-.7-2.4-1.7-2.4-.7 0-1.3.5-2 1.3l-2-1.8c1.4-1.6 2.8-2.5 4.6-2.5 3.4 0 5 3.1 5.1 7.2v6c0 3.7-1.6 5.7-4.4 5.7-1.6 0-2.9-1-4.3-3l-3.5-5.5c-1.5-2.5-2.5-3.7-3.4-3.7-.9 0-1.4 1-1.4 3.3 0 2.7.6 3.5 1.6 3.5.7 0 1.4-.6 2.2-1.4l2 1.8c-1.5 1.6-2.8 2.5-4.6 2.5-3.4 0-5-3.1-5-7.2z" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10m5 10V4m6 16v-7m5 7H2" /></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a4.5 4.5 0 0 0-4.5-4.5h-3A4.5 4.5 0 0 0 4 18.5V20M10 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7-1a3 3 0 0 0 0-6m1 10.5a4 4 0 0 1 3 3.9V20" /></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z" /></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19v2h16v-2" /></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 17V5m0 0 4 4m-4-4L8 9M4 19v2h16v-2" /></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M7 3v4m10-4v4M3 10h18" /></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" /></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></symbol>
+      <symbol id="i-board" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M9 4v16m6-16v16" /></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01" /></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7z" /></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" /><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" /></symbol>
+      <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2" /><circle cx="18" cy="7" r="2" /><circle cx="18" cy="18" r="2" /><path d="M8 5h2a4 4 0 0 1 4 4v5a4 4 0 0 0 4 4M14 10a3 3 0 0 1 3-3h1" /></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6" /></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-6.5 8.5-1 1a3.5 3.5 0 0 1-5-5l3-3a3.5 3.5 0 0 1 5 0m7-4 1-1a3.5 3.5 0 0 1 5 5l-3 3a3.5 3.5 0 0 1-5 0" /></symbol>
+      <symbol id="i-comment" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-9 8.5 9.5 9.5 0 0 1-4-.9L3 21l1.5-4.5A8.5 8.5 0 1 1 21 11.5Z" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19zM12 9v5m0 3h.01" /></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 4v6h6M5.5 15a8 8 0 1 0 .4-7.6L4 10" /></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" /></symbol>
+      <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1" fill="currentColor" stroke="none" /><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" /><circle cx="19" cy="12" r="1" fill="currentColor" stroke="none" /></symbol>
+    </svg>
+
+    <div class="app-shell">
+      <aside class="plasa-sidebar" aria-label="Navegación principal">
+        <div class="brand-lockup">
+          <img class="brand-word" src="./assets/LogoText_Normal_v0.svg" alt="Plasa" />
+          <span class="brand-pill">Conceptos</span>
+        </div>
+
+        <nav class="primary-nav">
+          <button class="nav-item" type="button"><svg><use href="#i-home" /></svg><span>Inicio</span></button>
+          <button class="nav-item" type="button"><svg><use href="#i-chart" /></svg><span>Analítica</span></button>
+          <button class="nav-item active" type="button" aria-current="page"><svg><use href="#i-bulb" /></svg><span>Conceptos</span></button>
+          <button class="nav-item" type="button"><svg><use href="#i-image" /></svg><span>Creativos</span></button>
+          <button class="nav-item" type="button"><svg><use href="#i-meta" /></svg><span>Meta Ads</span></button>
+          <button class="nav-item" type="button"><svg><use href="#i-users" /></svg><span>Mis clientes</span></button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="local-card">
+          <span class="status-dot"></span>
+          <div><strong>Laboratorio local</strong><small>Sin conexión de escritura</small></div>
+        </div>
+        <button class="nav-item" type="button"><svg><use href="#i-settings" /></svg><span>Configuración</span></button>
+      </aside>
+
+      <div class="app-main">
+        <header class="topbar">
+          <div class="breadcrumbs" aria-label="Ruta actual">
+            <span>Agencia</span><span class="crumb-separator">/</span><strong>Conceptos</strong>
+          </div>
+          <div class="topbar-actions">
+            <span class="snapshot-state" id="snapshotState"><span class="status-dot"></span>Datos ficticios</span>
+            <div class="user-chip" aria-label="Entorno actual"><span>DE</span><div><strong>Plasa Demo</strong><small>Demo pública</small></div></div>
+          </div>
+        </header>
+
+        <main id="workspaceMain" class="page-content">
+          <section class="page-heading" aria-labelledby="pageTitle">
+            <div>
+              <p class="eyebrow">Estrategia creativa</p>
+              <div class="title-row">
+                <h1 id="pageTitle">Conceptos</h1>
+                <span class="local-only-badge">Demo editable</span>
+              </div>
+              <p id="pageDescription" class="page-description">Elige un cliente, crea un concepto base y construye variaciones conectadas.</p>
+              <div class="mode-switch" role="group" aria-label="Vista de conceptos">
+                <button id="conceptualModeBtn" class="mode-option active" data-mode="conceptual" aria-pressed="true" type="button"><svg aria-hidden="true"><use href="#i-branch" /></svg>Constructor</button>
+                <button id="simpleModeBtn" class="mode-option" data-mode="simple" aria-pressed="false" type="button"><svg aria-hidden="true"><use href="#i-board" /></svg>Kanban</button>
+                <button id="advancedModeBtn" class="mode-option" data-mode="advanced" aria-pressed="false" type="button"><svg aria-hidden="true"><use href="#i-chart" /></svg>Análisis</button>
+              </div>
+            </div>
+            <div class="heading-actions">
+              <details class="data-menu">
+                <summary class="button secondary"><svg aria-hidden="true"><use href="#i-dots" /></svg>Datos</summary>
+                <div class="data-menu-panel">
+                  <button id="importBtn" type="button"><svg aria-hidden="true"><use href="#i-upload" /></svg><span><strong>Importar JSON</strong><small>Reemplaza los datos locales</small></span></button>
+                  <button id="exportBtn" type="button"><svg aria-hidden="true"><use href="#i-download" /></svg><span><strong>Exportar copia</strong><small>Descarga el trabajo actual</small></span></button>
+                  <button id="resetBtn" class="danger" type="button"><svg aria-hidden="true"><use href="#i-reset" /></svg><span><strong>Restaurar demo</strong><small>Vuelve al corpus inicial</small></span></button>
+                </div>
+              </details>
+              <button id="newConceptBtn" class="button primary" type="button"><svg aria-hidden="true"><use href="#i-plus" /></svg>Concepto base</button>
+              <input id="importInput" type="file" accept="application/json,.json" hidden />
+            </div>
+          </section>
+
+          <section id="simpleWorkspace" class="simple-workspace" aria-label="Kanban de conceptos">
+            <div class="simple-client-bar">
+              <span class="builder-step-number" aria-hidden="true">1</span>
+              <div class="simple-client-choice">
+                <span class="simple-label"><strong>Cliente del lienzo</strong><small>Se elige una vez; las ramas heredan este contexto.</small></span>
+                <div id="simpleClientList" class="simple-client-list" role="group" aria-label="Seleccionar cliente"></div>
+              </div>
+            </div>
+
+            <section class="simple-inbox" aria-labelledby="simpleInboxTitle">
+              <header class="simple-inbox-header">
+                <h2 id="simpleInboxTitle">Tablero</h2>
+                <span id="simpleResultCount" class="simple-result-count" aria-live="polite" aria-atomic="true">0 conceptos</span>
+              </header>
+
+              <div class="simple-toolbar" aria-label="Contexto y filtros de conceptos">
+                <div class="simple-product-step">
+                  <span class="builder-step-number" aria-hidden="true">2</span>
+                  <label class="select-wrap simple-filter" for="simpleProductFilter">
+                    <span class="simple-field-label">Producto del lienzo</span>
+                    <select id="simpleProductFilter" aria-label="Filtrar por producto"></select>
+                    <svg aria-hidden="true"><use href="#i-chevron" /></svg>
+                  </label>
+                </div>
+                <div class="simple-secondary-filters">
+                <label class="search-box simple-search" for="simpleConceptSearch">
+                  <svg aria-hidden="true"><use href="#i-search" /></svg>
+                  <span class="sr-only">Buscar conceptos</span>
+                  <input id="simpleConceptSearch" type="search" placeholder="Buscar concepto" autocomplete="off" />
+                </label>
+                <label class="select-wrap simple-filter" for="simpleStatusFilter">
+                  <span class="sr-only">Filtrar por estado</span>
+                  <select id="simpleStatusFilter" aria-label="Filtrar por estado"></select>
+                  <svg aria-hidden="true"><use href="#i-chevron" /></svg>
+                </label>
+                </div>
+              </div>
+
+              <div id="simpleViewRoot" class="simple-view-root"></div>
+              <section id="conceptEditorSlot" class="concept-editor-slot" aria-label="Editor del concepto">
+                <div id="conceptEditorEmpty" class="concept-editor-empty">
+                  <span><svg aria-hidden="true"><use href="#i-bulb" /></svg></span>
+                  <p class="section-kicker">Panel de trabajo</p>
+                  <h2>Selecciona una tarjeta de la cascada</h2>
+                  <p>Aquí podrás escribir la idea, persona, oferta, ángulo, creativos, notas y asociaciones de Meta sin perder de vista su origen.</p>
+                  <button class="button primary" type="button" data-editor-create-base><svg aria-hidden="true"><use href="#i-plus" /></svg>Crear concepto base</button>
+                </div>
+              </section>
+            </section>
+          </section>
+
+          <section id="advancedWorkspace" class="concept-layout" hidden>
+            <aside class="client-panel" aria-labelledby="clientPanelTitle">
+              <div class="panel-heading">
+                <div><p class="section-kicker">Portafolio</p><h2 id="clientPanelTitle">Clientes</h2></div>
+                <span id="clientCount" class="count-badge">2</span>
+              </div>
+              <label class="search-box compact" for="clientSearch">
+                <svg><use href="#i-search" /></svg>
+                <span class="sr-only">Buscar cliente</span>
+                <input id="clientSearch" type="search" placeholder="Buscar cliente" autocomplete="off" />
+              </label>
+              <div id="clientList" class="client-list" role="list"></div>
+
+              <div class="panel-divider"></div>
+              <div class="scope-block">
+                <p class="section-kicker">Producto</p>
+                <div id="productFilters" class="product-filters"></div>
+              </div>
+              <div class="scope-block">
+                <p class="section-kicker">Estado</p>
+                <label class="select-wrap" for="statusFilter">
+                  <select id="statusFilter"><option value="all">Todos los estados</option></select>
+                  <svg><use href="#i-chevron" /></svg>
+                </label>
+              </div>
+            </aside>
+
+            <div class="workspace-panel">
+              <div id="clientSummary" class="client-summary"></div>
+
+              <section id="kpiGrid" class="kpi-grid" aria-label="Resumen de resultados"></section>
+
+              <section class="work-card">
+                <div class="workspace-toolbar">
+                  <div class="view-tabs" role="tablist" aria-label="Vista de conceptos">
+                    <button class="view-tab active" data-view="map" role="tab" aria-selected="true" type="button"><svg><use href="#i-map" /></svg>Mapa</button>
+                    <button class="view-tab" data-view="board" role="tab" aria-selected="false" type="button"><svg><use href="#i-board" /></svg>Tablero</button>
+                    <button class="view-tab" data-view="list" role="tab" aria-selected="false" type="button"><svg><use href="#i-list" /></svg>Lista</button>
+                  </div>
+
+                  <div class="toolbar-controls">
+                    <label class="search-box" for="conceptSearch">
+                      <svg><use href="#i-search" /></svg>
+                      <span class="sr-only">Buscar conceptos</span>
+                      <input id="conceptSearch" type="search" placeholder="Buscar concepto, persona o ángulo" autocomplete="off" />
+                    </label>
+                    <label class="select-wrap date-select" for="dateRange">
+                      <svg class="leading-icon"><use href="#i-calendar" /></svg>
+                      <select id="dateRange" aria-label="Período de métricas">
+                        <option value="7">Últimos 7 días</option>
+                        <option value="14">Últimos 14 días</option>
+                        <option value="30" selected>Últimos 30 días</option>
+                      </select>
+                      <svg><use href="#i-chevron" /></svg>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="map-legend" id="mapLegend">
+                  <span><i class="legend-mark product"></i>Producto</span>
+                  <svg><use href="#i-arrow" /></svg>
+                  <span><i class="legend-mark territory"></i>Territorio / tesis</span>
+                  <svg><use href="#i-arrow" /></svg>
+                  <span><i class="legend-mark concept"></i>Concepto</span>
+                  <svg><use href="#i-arrow" /></svg>
+                  <span><i class="legend-mark execution"></i>Ejecuciones</span>
+                </div>
+
+                <div id="viewRoot" class="view-root" aria-live="polite"></div>
+              </section>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
+    <aside id="inspector" class="inspector" aria-labelledby="inspectorTitle" aria-hidden="true">
+      <header class="inspector-header">
+        <div class="inspector-title-block">
+          <div class="inspector-kicker"><span id="inspectorClient">Cliente</span><span>·</span><span id="inspectorProduct">Producto</span></div>
+          <h2 id="inspectorTitle">Detalle del concepto</h2>
+        </div>
+        <button id="closeInspectorBtn" class="icon-button" type="button" aria-label="Cerrar inspector"><svg><use href="#i-close" /></svg></button>
+      </header>
+      <div class="inspector-commandbar">
+        <label class="select-wrap status-control" for="quickStatus"><span class="sr-only">Estado</span><select id="quickStatus"></select><svg><use href="#i-chevron" /></svg></label>
+        <button id="duplicateBtn" class="button ghost small" type="button"><svg><use href="#i-copy" /></svg>Duplicar</button>
+        <button id="deriveBtn" class="button ghost small" type="button"><svg><use href="#i-branch" /></svg>Derivar</button>
+        <button id="deleteConceptBtn" class="icon-button danger" type="button" aria-label="Eliminar concepto"><svg><use href="#i-trash" /></svg></button>
+        <div id="simpleInspectorMore" class="simple-inspector-more">
+          <button id="simpleInspectorMoreBtn" class="icon-button" type="button" aria-label="Más acciones del concepto" aria-haspopup="menu" aria-expanded="false" aria-controls="simpleInspectorMenu"><svg><use href="#i-dots" /></svg></button>
+          <div id="simpleInspectorMenu" class="simple-inspector-menu" role="menu" hidden>
+            <button id="simpleDuplicateBtn" type="button" role="menuitem"><svg><use href="#i-copy" /></svg><span><strong>Duplicar</strong><small>Crear una copia independiente</small></span></button>
+            <button id="simpleDeleteBtn" class="danger" type="button" role="menuitem"><svg><use href="#i-trash" /></svg><span><strong>Eliminar</strong><small>Quitar del laboratorio local</small></span></button>
+          </div>
+        </div>
+      </div>
+      <nav class="inspector-tabs" role="tablist" aria-label="Secciones del concepto">
+        <button class="inspector-tab active" data-tab="strategy" role="tab" aria-selected="true" type="button">Idea</button>
+        <button class="inspector-tab" data-tab="creative" role="tab" aria-selected="false" type="button">Creativos <span id="creativeCountBadge">0</span></button>
+        <button class="inspector-tab" data-tab="meta" role="tab" aria-selected="false" type="button">Meta <span id="metaCountBadge">0</span></button>
+        <button class="inspector-tab" data-tab="results" role="tab" aria-selected="false" type="button">Resultados</button>
+        <button class="inspector-tab" data-tab="history" role="tab" aria-selected="false" type="button">Notas</button>
+      </nav>
+      <div id="inspectorBody" class="inspector-body"></div>
+      <footer class="inspector-footer">
+        <span id="autosaveState" role="status" aria-live="polite" aria-atomic="true"><svg><use href="#i-check" /></svg>Guardado localmente</span>
+        <button id="saveInspectorBtn" class="button primary" type="button">Guardar cambios</button>
+      </footer>
+    </aside>
+
+    <dialog id="conceptDialog" class="modal-dialog" aria-labelledby="conceptDialogTitle">
+      <form id="conceptForm" method="dialog">
+        <header class="modal-header">
+          <div><p class="section-kicker">Paso 3 · Nueva raíz</p><h2 id="conceptDialogTitle">Crear concepto base</h2></div>
+          <button class="icon-button" value="cancel" formnovalidate aria-label="Cerrar"><svg><use href="#i-close" /></svg></button>
+        </header>
+        <div class="modal-body">
+          <div id="newClientContext" class="modal-context-card" aria-live="polite"></div>
+          <select id="newClient" required hidden aria-hidden="true" tabindex="-1"></select>
+          <div class="form-row two-cols compact-create-fields">
+            <label class="field"><span>Producto <b>*</b></span><select id="newProduct" required></select></label>
+            <label class="field"><span>Territorio / tesis <b>*</b></span><select id="newTerritory" required></select></label>
+          </div>
+          <label class="field create-title-field"><span>Nombre del concepto <b>*</b></span><input id="newTitle" required maxlength="100" placeholder="Ej. El costo oculto de los recambios" /><small class="helper">Una idea reconocible que después puedas derivar.</small></label>
+          <label class="field"><span>Hipótesis o ángulo inicial</span><textarea id="newAngle" rows="3" placeholder="¿Qué tensión, promesa o creencia queremos probar?"></textarea></label>
+          <details class="progressive-fields">
+            <summary><span><svg aria-hidden="true"><use href="#i-plus" /></svg>Agregar más contexto</span><small>Persona, oferta, awareness y estado</small></summary>
+            <div class="progressive-fields-body">
+              <label class="field"><span>Persona</span><textarea id="newPersona" rows="3" placeholder="¿A quién le estamos hablando?"></textarea></label>
+              <label class="field"><span>Oferta</span><textarea id="newOffer" rows="3" placeholder="¿Qué le ofrecemos concretamente?"></textarea></label>
+              <div class="form-row two-cols">
+                <label class="field"><span>Awareness</span><select id="newAwareness"><option value="">Sin clasificar</option><option value="SOL">Solution aware (SOL)</option><option value="PRO">Product aware (PRO)</option><option value="UNAWARE">Unaware</option><option value="PAIN">Problem aware</option></select></label>
+                <label class="field"><span>Estado</span><select id="newStatus"></select></label>
+              </div>
+            </div>
+          </details>
+        </div>
+        <footer class="modal-footer"><button class="button secondary" value="cancel" formnovalidate>Cancelar</button><button id="createConceptSubmit" class="button primary" value="default">Crear concepto base</button></footer>
+      </form>
+    </dialog>
+
+    <dialog id="deriveDialog" class="modal-dialog derive-dialog" aria-labelledby="deriveDialogTitle">
+      <form id="deriveForm" method="dialog">
+        <header class="modal-header">
+          <div><p class="section-kicker">Nueva rama</p><h2 id="deriveDialogTitle">Derivar concepto</h2></div>
+          <button class="icon-button" value="cancel" formnovalidate aria-label="Cerrar"><svg><use href="#i-close" /></svg></button>
+        </header>
+        <div class="modal-body">
+          <div id="deriveSource" class="derivation-source-card"></div>
+          <fieldset class="derivation-fieldset">
+            <legend>¿Qué cambia en esta rama? <b>*</b></legend>
+            <p>Selecciona uno o varios cambios. Todo lo demás se hereda.</p>
+            <div class="derivation-options">
+              <label><input type="checkbox" name="deriveChange" value="hook" /><span>Hook</span></label>
+              <label><input type="checkbox" name="deriveChange" value="persona" /><span>Persona</span></label>
+              <label><input type="checkbox" name="deriveChange" value="offer" /><span>Oferta</span></label>
+              <label><input type="checkbox" name="deriveChange" value="angle" /><span>Ángulo</span></label>
+              <label><input type="checkbox" name="deriveChange" value="format" /><span>Formato</span></label>
+            </div>
+            <small id="deriveError" class="field-error" role="alert" hidden>Selecciona al menos un cambio para crear la rama.</small>
+          </fieldset>
+          <label class="field"><span>Nombre de la nueva rama <b>*</b></span><input id="deriveTitle" required maxlength="100" placeholder="Ej. Precio fábrica · Hook testimonial" /></label>
+          <label class="field"><span>Nota de intención</span><textarea id="deriveNote" rows="3" placeholder="Describe brevemente qué probarás diferente."></textarea></label>
+        </div>
+        <footer class="modal-footer"><button class="button secondary" value="cancel" formnovalidate>Cancelar</button><button class="button primary" value="default">Crear derivación</button></footer>
+      </form>
+    </dialog>
+
+    <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./seed-data.js"></script>
+    <script src="./meta-snapshot.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
